@@ -21,7 +21,7 @@ class User(db.Document):
 @app.route('/', methods=['GET'])
 def query_records():
     name = request.args.get('name')
-    user = User.objects(name=name).first()
+    user = User.objects().first()
     if not user:
         return jsonify({'error': 'data not found'})
     else:
